@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if search %}
+        <p style="font-size: 35px">You are searching for {{ value }} </p>
+    {% else %}
+    <h1>All Pages</h1>
+    {% endif %}
+    <ul>
+        {% for entry in entries %}
+            <li><a href="/wiki/{{entry}}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

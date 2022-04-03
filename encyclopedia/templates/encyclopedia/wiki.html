@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{entryTitle}}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <container id="mrkdown">
+        {% if wikis == None %}
+        <h3>Page not Found !</h3>
+        <p>Sorry but seems that we don't have yet what are you searching in our database</p>
+        {% else %}
+        <!-- Safe is used because I'm putting HTML content inside a variable-->
+        {{ wikis|safe }}
+        <a href="/wiki/{{ entryTitle }}/edit">Edit</a>
+        {% endif %} 
+        </container>
+    </div>
+    
+
+{% endblock %}

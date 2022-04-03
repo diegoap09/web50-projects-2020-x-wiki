@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create entry
+{% endblock %}
+
+
+{% block body %}
+    {% if exist %}
+    <p style="font-size: 60px; color:red; background-color:black;">Sorry this page already exist </p>
+    {% endif %}
+
+        <h3 style="color:purple">Here you can create a new encyclopedia entry</h3>
+        <form class="myform" method="post" action="{% url 'create' %}"> 
+            {% csrf_token %}
+            <p>{{ form.title }}</p>
+            <p>{{ form.content }}</p>
+            <p>{{ form.edit }}</p>
+            <button style="border-radius: 3px; background-color: purple; color: white;text-align: center;
+            " type="submit">Submit</button>
+        </form>
+        
+    
+
+{% endblock %}
